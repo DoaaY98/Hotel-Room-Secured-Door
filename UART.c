@@ -48,8 +48,8 @@ UART0_write(out);
 
 void PortC_init(void)
 {	
-	SYSCTL_RCGCGPIO_R |= 0x00000003; //portC activated
-	while( (SYSCTL_RCGCGPIO_R & 0x03)==0 ) {};   
+	SYSCTL_RCGCGPIO_R |= 0x00000004; //portC activated
+	while( (SYSCTL_RCGCGPIO_R & 0x04)==0 ) {};   
 	GPIO_PORTC_DIR_R = 0X00; //input 
 	GPIO_PORTC_DEN_R = 0XFF;  //enable digital
 	GPIO_PORTC_DATA_R=0x00; 
@@ -58,11 +58,11 @@ void PortC_init(void)
 
 void PortD_init(void)
 {	
-	SYSCTL_RCGCGPIO_R |= 0x00000010; //portD activated
-	while( (SYSCTL_RCGCGPIO_R & 0x10)==0 ) {};   
-	GPIO_PORTF_DIR_R = 0X00 ; //input 
-	GPIO_PORTF_DEN_R = 0XFF;  //enable digital
-	GPIO_PORTF_DATA_R=0x00; 
+	SYSCTL_RCGCGPIO_R |= 0x00000008; //portD activated
+	while( (SYSCTL_RCGCGPIO_R & 0x08)==0 ) {}; 
+	GPIO_PORTD_DIR_R = 0X00 ; //input 
+	GPIO_PORTD_DEN_R = 0XFF;  //enable digital
+	GPIO_PORTD_DATA_R=0x00; 
 		
 }
 void init_PORTF(void)
